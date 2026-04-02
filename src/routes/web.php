@@ -10,10 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/todo', function () {
-    echo 'Hello World!';
-});
-
+Route::get('/todo/create', 'TodoController@create')->name('todo.create');
 Route::get('/todo','TodoController@index');
 
