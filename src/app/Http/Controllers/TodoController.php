@@ -14,7 +14,7 @@ class TodoController extends Controller
     }
 
     public function index()
-    {
+    { 
          $todo = new Todo();
          $todos = $todo->all();
          return view('todo.index', ['todos' => $todos]);
@@ -23,12 +23,12 @@ class TodoController extends Controller
     public function store(Request $request) 
 {
     $inputs = $request->all(); 
-    dd($inputs);
 
     $todo = new Todo(); 
     $todo->fill($inputs);
     $todo->save();
 
     return redirect()->route('todo.index');
+    // 処理が終わった後に「指定した名前のルート（ニックネーム）へ画面を切り替える
 }
 }
