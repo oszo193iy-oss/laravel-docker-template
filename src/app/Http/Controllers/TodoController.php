@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TodoRequest;
 use App\Todo;
-use Illuminate\Http\Request;
 
 class TodoController extends Controller
 // Modelクラス
@@ -31,7 +31,7 @@ class TodoController extends Controller
          return view('todo.index', ['todos' => $todos]);
     }
 
-    public function store(Request $request) 
+    public function store(TodoRequest $request) 
     // store関数 フォームから送信された新しいデータをdbに保存、収納
     {
         $inputs = $request->all();
@@ -55,7 +55,7 @@ public function edit($id)
     return view('todo.edit', ['todo' => $todo]);
 }
 
-public function update(Request $request, $id)
+public function update(TodoRequest $request, $id)
 {
     $inputs = $request->all();
     // TODO: 更新対象のデータを取得
