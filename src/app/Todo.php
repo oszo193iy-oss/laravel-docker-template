@@ -10,4 +10,5 @@ class Todo extends Model
     protected $fillable = [
         'content',
     ];
+    // contentはfillメソッドで流し込んでokという宣言
 }

@@ -11,5 +11,9 @@
 |
 */
 Route::post('/todo', 'TodoController@store')->name('todo.store');
+// 登録
 Route::get('/todo/create', 'TodoController@create')->name('todo.create');
+// 表示
 Route::get('/todo', 'TodoController@index')->name('todo.index');
+Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');
+// {}は変数
