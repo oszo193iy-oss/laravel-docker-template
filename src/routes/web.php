@@ -21,3 +21,4 @@ Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
 // /edit データベースから特定のデータを取り出し、HTMLの <form> に流し込んで表示する。この {id} は「どのデータを編集するか」を特定するための識別子。
 Route::put('/todo/{id}', 'TodoController@update')->name('todo.update');
 // PUT ToDoを更新するルート
+Route::delete('/todo/{id}', 'TodoController@delete')->name('todo.delete');

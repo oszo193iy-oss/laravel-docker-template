@@ -45,6 +45,7 @@ class TodoController extends Controller
     public function show($id)
 {
     $todo = $this->todo->find($id);
+    // IDカラム）が一致するデータを1件だけ取ってくる
     return view('todo.show', ['todo' => $todo]);
 }
 
@@ -58,12 +59,18 @@ public function edit($id)
 public function update(TodoRequest $request, $id)
 {
     $inputs = $request->all();
-    // TODO: 更新対象のデータを取得
+    // $inputs 連想配列
     $todo = $this->todo->find($id);
-    // TODO: 更新したい値の代入とUPDATE文の実行
+    // $idと一致する主キーを持つレコードをデータベースから検索し結果を代入
     $todo-> fill($inputs)->save();
+    // 連想配列（$inputs）の内容を、$todo インスタンスの各項目に流し込み（fill）、それを保存（save）した
     return redirect()->route('todo.show', $todo->id);
 }
 
-
+public function delete($id)
+{
+    $todo = $this->todo->find($id);
+    $todo->delete();
+    return redirect()->route('todo.index');
+}
 }
