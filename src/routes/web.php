@@ -17,3 +17,5 @@ Route::get('/todo/create', 'TodoController@create')->name('todo.create');
 Route::get('/todo', 'TodoController@index')->name('todo.index');
 Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');
 // {}は変数
+Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
+// /edit データベースから特定のデータを取り出し、HTMLの <form> に流し込んで表示する。この {id} は「どのデータを編集するか」を特定するための識別子。
