@@ -1,4 +1,5 @@
 @extends('layouts.base')
+<!-- 親 -->
 @section('content')
 <div class="row justify-content-center">
   <div class="col-md-8">

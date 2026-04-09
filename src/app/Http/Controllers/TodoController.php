@@ -35,7 +35,7 @@ class TodoController extends Controller
     // store関数 フォームから送信された新しいデータをdbに保存、収納
     {
         $inputs = $request->all();
-        $this->todo->fill($inputs);
+        $this->todo->content = $request->input('content');
         // fill 大量のデータを一瞬で仕分け$inputsの連想配列を結合
         $this->todo->save();
         return redirect()->route('todo.index');
